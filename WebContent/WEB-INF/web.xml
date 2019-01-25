@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>ACPSample_Identification</display-name>
+  <welcome-file-list>
+
+    <welcome-file>index.jsp</welcome-file>
+
+  </welcome-file-list>
+  
+   <filter>
+    	<filter-name>CharsetEncodingFilter</filter-name>
+    	<filter-class>web.CharsetEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>CharsetEncodingFilter</filter-name>
+    	<url-pattern>*.jsp</url-pattern>
+    	<url-pattern>*</url-pattern>
+    </filter-mapping>
+  
+  <servlet>
+    <servlet-name>autoLoadServlet</servlet-name>
+    <servlet-class>web.AutoLoadServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  
+   <servlet-mapping>
+    <servlet-name>autoLoadServlet</servlet-name>
+    <url-pattern>/autoLoadServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 前台通知 处理类 此类需要映射一个外网地址并将该地址上送到 请求报文中的frontUrl中-->
+    <servlet>
+    <servlet-name>frontRcvResponse</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.FrontRcvResponse</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>frontRcvResponse</servlet-name>
+    <url-pattern>/frontRcvResponse</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 后台通知 处理类 此类需要映射一个外网地址并将该地址上送到 请求报文中的backUrl中-->
+    <servlet>
+    <servlet-name>backRcvResponse</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.BackRcvResponse</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>backRcvResponse</servlet-name>
+    <url-pattern>/backRcvResponse</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 交易状态查询-->
+      <servlet>
+    <servlet-name>form_5_2_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_2_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_2_Query</servlet-name>
+    <url-pattern>/form_5_2_Query</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 银行卡认证-->
+    <servlet>
+    <servlet-name>form_5_3_Card_Identification</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_3_Card_Identification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_3_Card_Identification</servlet-name>
+    <url-pattern>/form_5_3_Card_Identification</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 银行卡信息查询-->
+    <servlet>
+    <servlet-name>form_5_4_Card_Info_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_4_Card_Info_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_4_Card_Info_Query</servlet-name>
+    <url-pattern>/form_5_4_Card_Info_Query</url-pattern>
+  </servlet-mapping>
+  
+     <!-- 银行卡属地查询-->
+   <servlet>
+    <servlet-name>form_5_5_Card_Regional_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_5_Card_Regional_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_5_Card_Regional_Query</servlet-name>
+    <url-pattern>/form_5_5_Card_Regional_Query</url-pattern>
+  </servlet-mapping>
+  
+      <!-- 企业信息认证-->
+    <servlet>
+    <servlet-name>form_5_6_EnterPrise_Info_Identification</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_6_Enterprise_Info_Identification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_6_EnterPrise_Info_Identification</servlet-name>
+    <url-pattern>/form_5_6_EnterPrise_Info_Identification</url-pattern>
+  </servlet-mapping>
+  
+    
+      <!-- 企业信息查询-->
+    <servlet>
+    <servlet-name>form_5_7_Enterprise_Info_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_7_Enterprise_Info_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_7_Enterprise_Info_Query</servlet-name>
+    <url-pattern>/form_5_7_Enterprise_Info_Query</url-pattern>
+  </servlet-mapping>
+  
+        <!-- 5.8　企业信息批量认证-->
+    <servlet>
+    <servlet-name>form_5_8_Enterprise_Info_Batch_Identification</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_8_Enterprise_Info_Batch_Identification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_8_Enterprise_Info_Batch_Identification</servlet-name>
+    <url-pattern>/form_5_8_Enterprise_Info_Batch_Identification</url-pattern>
+  </servlet-mapping>
+
+        <!--5.9　企业信息批量认证查询-->
+    <servlet>
+    <servlet-name>form_5_9_Enterprise_Info_Batch_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_9_Enterprise_Info_Batch_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_9_Enterprise_Info_Batch_Query</servlet-name>
+    <url-pattern>/form_5_9_Enterprise_Info_Batch_Query</url-pattern>
+  </servlet-mapping>
+  
+          <!--5.10　人脸比对-->
+    <servlet>
+    <servlet-name>form_5_10_Face_Alignment</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_10_Face_Alignment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_10_Face_Alignment</servlet-name>
+    <url-pattern>/form_5_10_Face_Alignment</url-pattern>
+  </servlet-mapping>
+  
+            <!--5.11　防HACK-->
+    <servlet>
+    <servlet-name>form_5_11_Prevent_Hack</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_11_Prevent_Hack</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_11_Prevent_Hack</servlet-name>
+    <url-pattern>/form_5_11_Prevent_Hack</url-pattern>
+  </servlet-mapping>
+  
+              <!--5.12　活体检测-->
+    <servlet>
+    <servlet-name>form_5_12_Bioassay</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_12_Bioassay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_12_Bioassay</servlet-name>
+    <url-pattern>/form_5_12_Bioassay</url-pattern>
+  </servlet-mapping>
+  
+                <!--5.13　身份证核查及证件照比对-->
+    <servlet>
+    <servlet-name>form_5_13_ID_Photo_Check</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_13_ID_Photo_Check</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_13_ID_Photo_Check</servlet-name>
+    <url-pattern>/form_5_13_ID_Photo_Check</url-pattern>
+  </servlet-mapping>
+  
+                  <!--5.14　公民身份证简项认证及返回照片-->
+    <servlet>
+    <servlet-name>form_5_14_ID_Info_Check_Return_Photo</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_14_ID_Info_Check_Return_Photo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_14_ID_Info_Check_Return_Photo</servlet-name>
+    <url-pattern>/form_5_14_ID_Info_Check_Return_Photo</url-pattern>
+  </servlet-mapping>
+  
+                    <!--5.15　移动运营商手机实名认证-->
+    <servlet>
+    <servlet-name>form_5_15_Mobile_Real_Name_Auth</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_15_Mobile_Real_Name_Auth</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_15_Mobile_Real_Name_Auth</servlet-name>
+    <url-pattern>/form_5_15_Mobile_Real_Name_Auth</url-pattern>
+  </servlet-mapping>
+
+
+                    <!--5.16　移动运营商手机状态和在网时长查询-->
+    <servlet>
+    <servlet-name>form_5_16_Mobile_State_Online_Query</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_16_Mobile_State_Online_Query</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_16_Mobile_State_Online_Query</servlet-name>
+    <url-pattern>/form_5_16_Mobile_State_Online_Query</url-pattern>
+  </servlet-mapping>
+  
+                      <!--5.17　短信验证码下发-->
+    <servlet>
+    <servlet-name>form_5_17_SMS_Code_Issued</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_17_SMS_Code_Issued</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_17_SMS_Code_Issued</servlet-name>
+    <url-pattern>/form_5_17_SMS_Code_Issued</url-pattern>
+  </servlet-mapping>
+  
+                        <!--5.18　短信验证码验证-->
+    <servlet>
+    <servlet-name>form_5_18_SMS_Code_Verfication</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_18_SMS_Code_Verfication</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_18_SMS_Code_Verfication</servlet-name>
+    <url-pattern>/form_5_18_SMS_Code_Verfication</url-pattern>
+  </servlet-mapping>
+  
+                          <!--5.19　活体检测下单-->
+    <servlet>
+    <servlet-name>form_5_19_Bioassay_In_Order</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_19_Bioassay_In_Order</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_19_Bioassay_In_Order</servlet-name>
+    <url-pattern>/form_5_19_Bioassay_In_Order</url-pattern>
+  </servlet-mapping>
+  
+                            <!--5.20　银行卡认证（前台）-->
+    <servlet>
+    <servlet-name>form_5_20_Bank_Card_Identification_Front</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_20_Bank_Card_Identification_Front</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_20_Bank_Card_Identification_Front</servlet-name>
+    <url-pattern>/form_5_20_Bank_Card_Identification_Front</url-pattern>
+  </servlet-mapping>
+  
+                              <!--5.21　企业信息认证（前台）-->
+    <servlet>
+    <servlet-name>form_5_21_Enterprise_Info_Identification_Front</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_21_Enterprise_Info_Identification_Front</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_21_Enterprise_Info_Identification_Front</servlet-name>
+    <url-pattern>/form_5_21_Enterprise_Info_Identification_Front</url-pattern>
+  </servlet-mapping>
+  
+                                <!--5.22　企业信息查询（前台）-->
+    <servlet>
+    <servlet-name>form_5_22_Enterprise_Info_Query_Front</servlet-name>
+    <servlet-class>com.unionpay.acp.demo.Form_5_22_Enterprise_Info_Query_Front</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_5_22_Enterprise_Info_Query_Front</servlet-name>
+    <url-pattern>/form_5_22_Enterprise_Info_Query_Front</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
